@@ -1,0 +1,29 @@
+.app-container {
+  height: 100vh;
+  overflow: auto;
+  background-color: black;
+}
+
+.intro-screen {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeOut 1s ease-in-out forwards;
+  background-color: black;
+  z-index: 10;
+}
+
+.intro-logo {
+  width: 150px;
+  animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    filter: drop-shadow(0 0 5px #0ff);
+  }
+  to {
+    filter: drop-shadow(0 0 20px #0ff);
+  }
+}

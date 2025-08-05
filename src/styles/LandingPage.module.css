@@ -1,0 +1,62 @@
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 2;
+}
+
+.scroll-text {
+  font-size: 1rem;
+  color: #0ff;
+  font-weight: bold;
+  text-shadow: 0 0 6px #0ff;
+  margin-bottom: 0.3rem;
+}
+
+/* Arrow style */
+.chevron-down {
+  width: 20px;
+  height: 20px;
+  border-left: 3px solid #0ff;
+  border-bottom: 3px solid #0ff;
+  transform: rotate(-45deg);
+  margin: 0 auto;
+  opacity: 0.8;
+  animation: slideDown 1.5s ease-in-out infinite;
+}
+
+/* Slide animation */
+@keyframes slideDown {
+  0% {
+    transform: rotate(-45deg) translateY(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: rotate(-45deg) translateY(6px);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(-45deg) translateY(0);
+    opacity: 0.6;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .scroll-text {
+    font-size: 0.9rem;
+  }
+
+  .chevron-down {
+    width: 16px;
+    height: 16px;
+    border-left: 2px solid #0ff;
+    border-bottom: 2px solid #0ff;
+  }
+
+  .scroll-indicator {
+    bottom: 100px;
+  }
+}

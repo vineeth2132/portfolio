@@ -1,0 +1,123 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #0b0c10;
+  color: white;
+}
+
+.project-wall {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 24px;
+  gap: 1rem;
+  width: 100%
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 1rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  max-width: 800px;
+  width: 100%;
+  color: white;
+}
+
+.holo-button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #0ff;
+  background: rgba(0, 255, 255, 0.1);
+  color: #0ff;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  text-shadow: 0 0 5px #0ff;
+  transition: all 0.3s ease;
+}
+
+.holo-button:hover {
+  background: rgba(0, 255, 255, 0.3);
+  box-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+  transform: scale(1.1);
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: monospace;
+  background-color: black;
+}
+.page-container {
+  padding: 2rem;
+  color: white;
+  background: black;
+  min-height: 100vh;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  text-align: center;
+  color: #00ffff;
+  text-shadow: 0 0 10px #0ff;
+  margin-bottom: 2rem;
+}
+
+.projects-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid #00ffff;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 0 10px #00ffff55;
+  text-align: center;
+}
+
+.project-card h2 {
+  color: #00ffff;
+  margin-bottom: 0.5rem;
+}
+
+.project-card p {
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #ddd;
+  margin-bottom: 1rem;
+}
+
+.model-viewer {
+  width: 100%;
+  height: 300px;
+  background: #111;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.view-details-btn {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #00ffff;
+  color: black;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.view-details-btn:hover {
+  background: #00cccc;
+}
