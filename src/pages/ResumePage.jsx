@@ -70,7 +70,7 @@ export default function ResumePage() {
         }}
       >
         <img
-          src="/resume/resume.png"
+          src="/resume/resume1.png"
           alt="Resume"
           style={{
             width: "100%",
@@ -80,7 +80,7 @@ export default function ResumePage() {
           }}
         />
         <a
-          href="/resume/resume.pdf"
+          href="/resume/resume1.pdf"
           download
           style={{
             display: "inline-block",
