@@ -5,7 +5,7 @@ const projectsData = [
     description:
       " Developed an automated millet classification system that uses deep learning for accurate millet variety identification via an upper camera with an accuracy of 85%, coupled with load cells for weight estimation.This project is also featured with automatd billing systems basically automates the process of purchasing loose groceries such as millets,Atta,Dal and so on",
     techStack: ["SolidWorks", "Deep Learning - Yolo V8", "Raspberry Pi" , "Python"],
-    model:"/videos/Copy of automated millet identification and billing system.mp4",
+    video:"/videos/Copy of automated millet identification and billing system.mp4",
   },
   {
     id: "Project-0",
@@ -21,7 +21,7 @@ const projectsData = [
     description:
       "Designed and developed a robotic workcell for efficient colour-based object sorting and assembly, featuring an RRR manipulator (calculated inverse kinematics), conveyor, and an IoT-based control system for streamlined operations.",
     techStack: ["SolidWorks", "Arduino IDE", "MATLAB" , "Python"],
-    model:"/videos/Copy of pick and place robot working.mp4",
+    video:"/videos/Copy of pick and place robot working.mp4",
   },
   {
     id: "Project-3",
