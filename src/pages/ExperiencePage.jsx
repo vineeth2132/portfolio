@@ -31,7 +31,7 @@ export default function ExperiencePage() {
 
     {
       role: "Drone Operations Support ",
-      company: "Grace Dronen Technologies",
+      company: "Grace Drone Technologies",
       date: "Oct 2024 – Sept 2025",
       details:
         "During my time at Grace Drone Technologies, I worked in Drone Operations Support, where I was actively involved in both field operations and technical tasks. My responsibilities included assisting with pre-flight and post-flight activities such as drone calibration, battery management, and safety checks. I supported mission planning and aerial surveys using DroneDeploy for automated flight path planning, mapping, and data collection, while also contributing to survey and inspection projects by processing aerial data and preparing site layouts with AutoCAD. In addition, I managed drone-captured data by generating orthomosaics, organizing outputs, and preparing them for client reports. Working closely with pilots and engineers, I ensured safe, efficient, and regulation-compliant operations throughout each mission. "
