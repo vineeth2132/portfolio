@@ -537,7 +537,7 @@ export default function LandingPage() {
         {/* Right Side: Image/Visual (New Position) */}
         <div style={{ flex: '1 1 40%', display: 'flex', justifyContent: 'center' }}>
           <img 
-            src="./images/vineth_pro.JPG" 
+            src="./images/vineth_pro.jpg" 
             alt="Profile" 
             style={{ 
               width: "280px", 
