@@ -65,7 +65,7 @@ const projectData = [
   {
     id: 7,
     title: "Kinematics Simulation for RRR manipulator",
-    category: "Math & Design & Physics",
+    category: "Math & Design",
     description: "Developed a obstacle avoidance,overcoming technical challenges in sensor selection and control algorithm design.",
     image: "./images/manipulator.jpg",
     tags: ["Solidworks", "Arduino IDE ", "Embedded C"],
@@ -537,7 +537,7 @@ export default function LandingPage() {
         {/* Right Side: Image/Visual (New Position) */}
         <div style={{ flex: '1 1 40%', display: 'flex', justifyContent: 'center' }}>
           <img 
-            src="./images/vineth_pro.jpg" 
+            src="./images/vineth_pro.jpg"
             alt="Profile" 
             style={{ 
               width: "280px", 
