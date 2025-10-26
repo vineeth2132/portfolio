@@ -223,7 +223,7 @@ export default function LandingPage() {
 
   }, []);
   const openLinkedIn = () => {
-    window.open("https://www.linkedin.com/in/vineth-joseph-mallavarapu/", "_blank");
+    window.open("https://linkedin.com/in/vineth-joseph-4a36931a6", "_blank");
   };
 
   // --- Modal Open/Close Handlers ---
@@ -537,7 +537,7 @@ export default function LandingPage() {
         {/* Right Side: Image/Visual (New Position) */}
         <div style={{ flex: '1 1 40%', display: 'flex', justifyContent: 'center' }}>
           <img 
-            src="/vineth_pro.JPG" 
+            src="./images/vineth_pro.JPG" 
             alt="Profile" 
             style={{ 
               width: "280px", 
