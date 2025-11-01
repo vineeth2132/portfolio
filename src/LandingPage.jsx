@@ -99,7 +99,7 @@ const projectData = [
     image: "./images/wether.jpg",
     tags: ["ESP32 Microcontroller", "IoT & WiFi Connectivity", "ThingSpeak Cloud Integration", "Real‑Time Data Logging & Visualization", "Smart Monitoring Systems"],
     details: `This project demonstrates the integration of a DHT11 temperature and humidity sensor with an ESP32 microcontroller, enabling real‑time environmental data collection and wireless transmission. The ESP32 is programmed to connect to WiFi, acquire sensor readings, and publish them to a ThingSpeak IoT cloud channel using API keys. The system supports both hardware implementation and simulation, allowing validation of data flow, visualization of trends, and analysis of sensor performance. By combining IoT hardware, cloud connectivity, and data analytics, the project highlights a practical application of smart monitoring systems within the Industry 4.0 framework.`,
-  },
+ },
 
   {
     id: 11,
@@ -131,21 +131,18 @@ Beyond simple dialogue, the assistant can perform a range of intelligent tasks s
     image: "./images/milletsclass.jpg",
     tags: ["DeepLearning", "Machine Learning", "CNN", "Image Processing", "Python", "TensorFlow", "Yolo V8"],
     details: `Developed a deep learning-based image classification system to automatically identify and categorize different millet varieties using Yolo V8. The project involved dataset preprocessing, image augmentation, and model training to improve accuracy and robustness under varying lighting and texture conditions. This work demonstrates the application of AI in agriculture, enabling faster and more reliable grain recognition for research and quality assessment.`,
+References: [3]
   },
 ];
 
-// --- REMOVED COURSE DATA ---
-
-// --- Filter Categories (from your Expertise Domains) ---
 const filterCategories = [
   "All",
-  "Control", // Renamed for clarity in filter logic
-  "Math & Design", // Renamed for clarity in filter logic
+  "Control",
+  "Math & Design",
   "Software Simulation",
   "AI & ML",
 ];
 
-// Map for Domain Icons
 const domainIcons = {
   "Control & Hardware": Zap,
   "Math & Design": Compass,
@@ -153,12 +150,11 @@ const domainIcons = {
   "AI & ML": Cpu,
 };
 
-// Data for Expertise Domains - ADDED filter property
 const expertiseDomains = [
-  { title: "Control & Hardware", filter: "Control", color: "blue", desc: "Prototyping, Sensor Integration, Embedded Systems, and system control." },
-  { title: "Math & Design", filter: "Math & Design", color: "purple", desc: "kinematics, Matlab Simulations and Solidworks." },
-  { title: "Software Simulation", filter: "Software Simulation", color: "green", desc: "ROS, Gazebo, URDF, and system integration for virtual testing." },
-  { title: "AI & ML", filter: "AI & ML", color: "orange", desc: "Deep learning (CNNs, RNNs), CV, and NLP for intelligent systems." },
+  { title: "Control & Hardware", filter: "Control", color: "blue", desc: "Prototyping, Sensor Integration, Embedded Systems, and system control." },
+  { title: "Math & Design", filter: "Math & Design", color: "purple", desc: "kinematics, Matlab Simulations and Solidworks." },
+  { title: "Software Simulation", filter: "Software Simulation", color: "green", desc: "ROS, Gazebo, URDF, and system integration for virtual testing." },
+  { title: "AI & ML", filter: "AI & ML", color: "orange", desc: "Deep learning (CNNs, RNNs), CV, and NLP for intelligent systems." },
 ];
 
 function MovingStars() {
@@ -178,19 +174,606 @@ function MovingStars() {
   return <Stars ref={starsRef} radius={100} depth={50} count={5000} factor={4} fade />;
 }
 
+// --- CSS Styles ---
+// We inject all styles this way to keep it in one file and allow for media queries.
+const allStyles = `
+  .landing-page-container {
+    width: 100vw;
+    position: relative;
+    color: #0ff;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: transparent;
+  }
+
+  .stars-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  /* --- Hero Section --- */
+  .hero-section {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 80px;
+    z-index: 10;
+  }
+
+  .hero-content {
+    flex: 1 1 50%;
+    max-width: 700px;
+    font-family: "Orbitron", sans-serif;
+    text-shadow: 0 0 8px #0ff;
+  }
+
+  .hero-welcome {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+  }
+
+  .hero-name {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+  }
+
+  .hero-type-animation {
+    min-height: 100px;
+    font-size: 3rem;
+  }
+
+  .hero-description {
+    margin-top: 10px;
+    font-size: 1rem;
+    line-height: 1.5em;
+  }
+
+  .hero-buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+  }
+
+  .hero-btn-primary {
+    background: #0ff;
+    border: 1px solid #0ff;
+    color: #000;
+    padding: 12px 24px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: "Orbitron", sans-serif;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  }
+  .hero-btn-primary:hover {
+    background: #fff;
+  }
+
+  .hero-btn-secondary {
+    background: transparent;
+    border: 1px solid #0ff;
+    color: #0ff;
+    padding: 12px 24px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: "Orbitron", sans-serif;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    box-shadow: 0 0 10px rgba(0,255,255,0.3);
+  }
+  .hero-btn-secondary:hover {
+    background: #0ff;
+    color: #000;
+  }
+
+  .hero-image-container {
+    flex: 1 1 40%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-profile-img {
+    width: 280px;
+    height: 360px;
+    object-fit: contain;
+    border-radius: 10%;
+    border: 4px solid #0ff;
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.4);
+  }
+
+  /* --- About Section --- */
+  .about-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 80px 80px;
+    font-family: "Orbitron", sans-serif;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: relative;
+    z-index: 10;
+    color: #e6ffff;
+  }
+
+  .about-text {
+    max-width: 550px;
+    flex: 1 1 60%;
+    text-align: left;
+  }
+
+  .about-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #0ff;
+    color: #0ff;
+  }
+
+  .about-paragraph {
+    font-size: 1.1rem;
+    line-height: 1.8em;
+    margin-bottom: 15px;
+  }
+
+  .about-skills-box {
+    flex: 1 1 35%;
+    max-width: 450px;
+    background-color: #111;
+    border: 2px solid #0ff;
+    border-radius: 12px;
+    padding: 30px;
+    color: #0ff;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+  }
+
+  .about-skills-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-shadow: 0 0 8px #0ff;
+  }
+
+  .about-skills-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+
+  .skills-tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .skill-tag {
+    background-color: #0ff;
+    color: #000;
+    padding: 8px 14px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    white-space: nowrap;
+  }
+
+  /* --- Expertise Section --- */
+  .expertise-section {
+    padding: 60px 80px;
+    font-family: "Orbitron", sans-serif;
+    color: #e6ffff;
+    position: relative;
+    z-index: 10;
+  }
+
+  .section-title-center {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-shadow: 0 0 10px #0ff;
+    text-align: center;
+    color: #0ff;
+  }
+
+  .expertise-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  /* .expertise-item styles are handled by dynamic domainListItemStyle */
+  .expertise-item-title {
+    font-size: 1.4rem;
+    margin: 0;
+    margin-bottom: 5px;
+    color: #fff;
+  }
+
+  .expertise-item-desc {
+    font-size: 0.95rem;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* --- Projects Section --- */
+  .projects-section {
+    padding: 60px 50px;
+    font-family: "Orbitron", sans-serif;
+    color: #e6ffff;
+    position: relative;
+    z-index: 10;
+  }
+
+  .section-title-left {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px #0ff;
+    text-align: left;
+    color: #0ff;
+  }
+
+  .filter-tabs-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 30px;
+  }
+
+  .filter-tab {
+    background: transparent;
+    border: 1px solid rgba(0, 255, 255, 0.5);
+    color: #0ff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: "Orbitron", sans-serif;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+  }
+  .filter-tab-active {
+    background: #0ff;
+    border: 1px solid #0ff;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: "Orbitron", sans-serif;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    font-weight: bold;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+  }
+
+  .project-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+  }
+
+  .project-card {
+    flex: 1 1 350px;
+    max-width: 400px;
+    min-width: 300px;
+    background-color: rgba(0, 40, 60, 0.4);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(6px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #e6ffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 255, 255, 0.3);
+  }
+
+  .card-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+  }
+
+  .card-content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #0ff;
+    margin-bottom: 10px;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+  }
+
+  .card-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: #dff;
+  }
+
+  .card-tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .card-tag {
+    background-color: rgba(0, 255, 255, 0.1);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    color: #0ff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+
+  .card-details-button {
+    background: #0ff;
+    border: 1px solid #0ff;
+    color: #000;
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: "Orbitron", sans-serif;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    margin-top: 15px;
+    align-self: flex-start;
+  }
+  .card-details-button:hover {
+    background: #fff;
+    border-color: #fff;
+  }
+
+  /* --- Modal Styles --- */
+  .modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    animation: fadeIn 0.3s forwards;
+  }
+
+  .modal-content {
+    background-color: #0a192f;
+    border: 1px solid #0ff;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 800px;
+    height: 80vh;
+    overflow-y: auto;
+    padding: 30px;
+    position: relative;
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.3);
+    transform: scale(0.9);
+    animation: scaleIn 0.3s 0.1s forwards;
+  }
+
+  .modal-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #0ff;
+    color: #000;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: all 0.2s ease;
+  }
+  .modal-close-btn:hover {
+    background: #fff;
+  }
+
+  .modal-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+  }
+
+  .modal-title {
+    font-size: 2rem;
+    color: #0ff;
+    margin-bottom: 15px;
+  }
+
+  .modal-details {
+    font-size: 1rem;
+    line-height: 1.7;
+    white-space: pre-wrap; /* Preserves formatting */
+    margin-bottom: 20px;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes scaleIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+
+  /* ---  responsiveness --- */
+  
+  /* --- Tablet (1024px) --- */
+  @media (max-width: 1024px) {
+    .hero-section,
+    .about-section,
+    .expertise-section,
+    .projects-section {
+      padding: 60px 40px;
+    }
+
+    .hero-section {
+      height: auto;
+      min-height: 100vh;
+    }
+  }
+
+  /* --- Small Tablet / Large Phone (768px) --- */
+  @media (max-width: 768px) {
+    .hero-section {
+      flex-direction: column-reverse;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 20px 40px 20px;
+      height: auto;
+    }
+
+    .hero-content {
+      max-width: 100%;
+    }
+
+    .hero-name {
+      font-size: 2rem;
+    }
+
+    .hero-type-animation {
+      font-size: 2.2rem;
+      min-height: 80px;
+    }
+
+    .hero-buttons {
+      justify-content: center;
+    }
+
+    .hero-profile-img {
+      width: 200px;
+      height: 260px;
+      margin-bottom: 30px;
+    }
+
+    .about-section {
+      flex-direction: column;
+      padding: 60px 20px;
+    }
+
+    .about-text, .about-skills-box {
+      max-width: 100%;
+      flex-basis: 100%;
+    }
+
+    .expertise-section, .projects-section {
+      padding: 60px 20px;
+    }
+
+    .section-title-left, .about-title {
+      text-align: center;
+    }
+    
+    .section-title-left {
+        font-size: 2rem;
+    }
+    
+    .about-title {
+        font-size: 2rem;
+    }
+
+    .about-skills-title {
+      font-size: 1.8rem;
+    }
+    
+    .expertise-item-title {
+        font-size: 1.2rem;
+    }
+  }
+
+  /* --- Phone (480px) --- */
+  @media (max-width: 480px) {
+    .hero-name {
+      font-size: 1.8rem;
+    }
+
+    .hero-type-animation {
+      font-size: 1.5rem;
+      min-height: 60px;
+    }
+
+    .hero-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .hero-btn-primary, .hero-btn-secondary {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .filter-tabs-container {
+        justify-content: center;
+    }
+    
+    .filter-tab, .filter-tab-active {
+        font-size: 0.8rem;
+        padding: 8px 15px;
+    }
+    
+    .project-card {
+        min-width: 90%;
+    }
+    
+    .modal-content {
+        padding: 20px;
+        width: 95%;
+        height: 85vh;
+    }
+    
+    .modal-title {
+        font-size: 1.5rem;
+    }
+    
+    .modal-image {
+        height: 200px;
+    }
+  }
+`;
+
+
 export default function LandingPage() {
   const aboutRef = useRef(null);
   const workRef = useRef(null);
   const projectsRef = useRef(null);
-  // REMOVED: const coursesRef = useRef(null);
 
-  // --- State for filters ---
   const [activeProjectFilter, setActiveProjectFilter] = useState("All");
-  // REMOVED: const [activeCourseFilter, setActiveCourseFilter] = useState("All");
-
-  // --- State for Modal ---
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalContent, setModalContent] = useState(null); // Will store the selected project/course data
+  const [modalContent, setModalContent] = useState(null);
 
   const scrollToAbout = () => {
     if (aboutRef.current) aboutRef.current.scrollIntoView({ behavior: "smooth" });
@@ -201,43 +784,36 @@ export default function LandingPage() {
   const scrollToProjects = () => {
     if (projectsRef.current) projectsRef.current.scrollIntoView({ behavior: "smooth" });
   };
-  // REMOVED: const scrollToCourses = () => { ... };
   
-  useEffect(() => {
+  useEffect(() => {
     const hash = window.location.hash;
-    
-    // Use a slight delay to ensure the page has fully rendered before scrolling
     const timer = setTimeout(() => {
       if (hash === '#about' && aboutRef.current) {
         aboutRef.current.scrollIntoView({ behavior: "smooth" });
       } else if (hash === '#projects' && projectsRef.current) {
         projectsRef.current.scrollIntoView({ behavior: "smooth" });
       }
-      // Clean the hash from the URL after scrolling
       if (hash) {
         window.history.replaceState(null, '', window.location.pathname);
       }
     }, 100); 
-
-    return () => clearTimeout(timer); // Cleanup timer
-
+    return () => clearTimeout(timer);
   }, []);
+
   const openLinkedIn = () => {
     window.open("https://linkedin.com/in/vineth-joseph-4a36931a6", "_blank");
   };
 
-  // --- Modal Open/Close Handlers ---
   const openModal = (content) => {
     setModalContent(content);
     setIsModalOpen(true);
-    // Prevent scrolling when modal is open
     document.body.style.overflow = 'hidden';
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
     setModalContent(null);
-    document.body.style.overflow = 'unset'; // Restore scrolling
+    document.body.style.overflow = 'unset';
   };
 
   const colorMap = {
@@ -247,7 +823,7 @@ export default function LandingPage() {
     orange: { rgb: "255, 140, 0", border: "#ff8c00", glow: "255, 140, 0" },
   };
 
-  // RE-DEFINED: This style is now for the vertical list items, not 4 parallel cards.
+  // --- DYNAMIC STYLES: Kept as-is ---
   const domainListItemStyle = (colorKey) => {
     const c = colorMap[colorKey] || colorMap.blue;
     return {
@@ -258,195 +834,44 @@ export default function LandingPage() {
       boxShadow: `0 0 12px rgba(${c.glow}, 0.15)`,
       color: "#e6ffff",
       transition: "all 0.3s ease",
-      cursor: "pointer", // MODIFIED: Changed from 'default' to 'pointer'
+      cursor: "pointer",
       display: "flex",
       alignItems: "center",
       gap: "20px",
     };
   };
 
-  // RE-DEFINED: Removed complex hover effect as the layout is simpler now.
-  const handleHover = (e, colorKey, enter) => {
-    const c = colorMap[colorKey] || colorMap.blue;
-    if (enter) {
-      e.currentTarget.style.borderLeft = `5px solid #0ff`;
-      e.currentTarget.style.boxShadow = `0 0 20px rgba(0, 255, 255, 0.4)`;
-    } else {
-      e.currentTarget.style.borderLeft = `5px solid ${c.border}`;
-      e.currentTarget.style.boxShadow = `0 0 12px rgba(${c.glow}, 0.15)`;
-    }
-  };
+  function handleHover(e, colorKey, enter) {
+    const c = colorMap[colorKey] || colorMap.blue;
+    if (enter) {
+      e.currentTarget.style.borderLeft = `5px solid #0ff`;
+      e.currentTarget.style.boxShadow = `0 0 20px rgba(0, 255, 255, 0.4)`;
+    } else {
+      e.currentTarget.style.borderLeft = `5px solid ${c.border}`;
+      e.currentTarget.style.boxShadow = `0 0 12px rgba(${c.glow}, 0.15)`;
+    }
+  }
+  // --- END DYNAMIC STYLES ---
 
-  const tabButtonStyle = {
-    background: "transparent",
-    border: "1px solid #0ff",
-    color: "#0ff",
-    padding: "10px",
-    borderRadius: "50%",
-    cursor: "pointer",
-    transition: "background 0.2s ease, box-shadow 0.2s ease",
-    boxShadow: "0 0 10px rgba(0,255,255,0.3)",
-    display: "flex", // Added for icon centering
-    alignItems: "center",
-    justifyContent: "center",
-  };
-  
-  // Specific style for View Details button to distinguish it
-  const viewDetailsButtonStyle = {
-    background: "#0ff",
-    border: "1px solid #0ff",
-    color: "#000",
-    padding: "8px 15px",
-    borderRadius: "8px", // More rectangular for a button
-    cursor: "pointer",
-    fontFamily: "Orbitron, sans-serif",
-    fontSize: "0.9rem",
-    fontWeight: "bold",
-    transition: "all 0.2s ease",
-    marginTop: "15px", // Spacing from tags/description
-    alignSelf: 'flex-start', // Align button to the start of the flex container
-  };
-
-  // --- New Styles for Project/Course Section ---
-  const sectionStyle = {
-    padding: "60px 50px",
-    fontFamily: "Orbitron, sans-serif",
-    color: "#e6ffff",
-    position: "relative",
-    zIndex: 10,
-  };
-
-  const titleStyle = {
-    fontSize: "2.5rem",
-    marginBottom: "30px",
-    textShadow: "0 0 10px #0ff",
-    textAlign: "left",
-    color: "#0ff",
-  };
-
-  const filterTabContainerStyle = {
-    display: "flex",
-    flexWrap: "wrap",
-    gap: "12px",
-    marginBottom: "30px",
-  };
-
-  const filterTabStyle = {
-    background: "transparent",
-    border: "1px solid rgba(0, 255, 255, 0.5)",
-    color: "#0ff",
-    padding: "10px 20px",
-    borderRadius: "30px",
-    cursor: "pointer",
-    fontFamily: "Orbitron, sans-serif",
-    fontSize: "0.9rem",
-    transition: "all 0.2s ease",
-  };
-
-  const activeFilterTabStyle = {
-    ...filterTabStyle,
-    background: "#0ff",
-    color: "#000",
-    fontWeight: "bold",
-    boxShadow: "0 0 15px rgba(0, 255, 255, 0.5)",
-  };
-
-  const cardGridStyle = {
-    display: "flex",
-    flexWrap: "wrap",
-    gap: "25px",
-    justifyContent: "center",
-  };
-
-  const cardStyle = {
-    flex: "1 1 350px", // Each card aims for 350px width
-    maxWidth: "400px", // Max width to prevent them from getting too large
-    minWidth: "300px", // Min width for smaller screens
-    backgroundColor: "rgba(0, 40, 60, 0.4)", // Darker semi-transparent blue
-    border: "1px solid rgba(0, 255, 255, 0.3)",
-    borderRadius: "12px",
-    overflow: "hidden",
-    boxShadow: "0 4px 20px rgba(0, 0, 0, 0.4)",
-    backdropFilter: "blur(6px)",
-    transition: "transform 0.3s ease, box-shadow 0.3s ease",
-    color: "#e6ffff",
-    display: 'flex', // Added to make content align nicely with button at bottom
-    flexDirection: 'column',
-    justifyContent: 'space-between', // Pushes button to bottom
-  };
-
-  const cardImageStyle = {
-    width: "100%",
-    height: "220px",
-    objectFit: "cover",
-    borderBottom: "1px solid rgba(0, 255, 255, 0.3)",
-  };
-
-  const cardContentStyle = {
-    padding: "20px",
-    flexGrow: 1, // Allows content to take available space
-    display: 'flex',
-    flexDirection: 'column',
-  };
-
-  const cardTitleStyle = {
-    fontSize: "1.3rem",
-    fontWeight: "bold",
-    color: "#0ff",
-    marginBottom: "10px",
-    textShadow: "0 0 5px rgba(0, 255, 255, 0.5)",
-  };
-
-  const cardDescriptionStyle = {
-    fontSize: "0.95rem",
-    lineHeight: "1.6",
-    marginBottom: "10px", // Reduced for button spacing
-    color: "#dff",
-  };
-
-  const cardTagContainerStyle = {
-    display: "flex",
-    flexWrap: "wrap",
-    gap: "8px",
-    marginBottom: "10px", // For spacing the view details button
-  };
-
-  const cardTagStyle = {
-    backgroundColor: "rgba(0, 255, 255, 0.1)",
-    border: "1px solid rgba(0, 255, 255, 0.2)",
-    color: "#0ff",
-    padding: "5px 10px",
-    borderRadius: "4px",
-    fontSize: "0.75rem",
-    fontWeight: "500",
-  };
 
   // --- Filtered Data ---
   const filteredProjects = projectData.filter(
     (project) => activeProjectFilter === "All" || project.category === activeProjectFilter
-  );
-
-  // REMOVED: const filteredCourses = ...
+  )
 
   return (
-    <div
-      style={{
-        width: "100vw",
-        position: "relative",
-        color: "#0ff",
-        minHeight: "100vh",
-        overflowX: "hidden",
-        background: "transparent", // transparent so stars show through
-      }}
-    >
+    <>
+      {/* This injects all the CSS into the page head */}
+      <style>{allStyles}</style>
+
+      <div className="landing-page-container">
       <NavBar 
-        scrollToAbout={scrollToAbout} 
-        scrollToProjects={scrollToProjects} 
-      // REMOVED: scrollToCourses prop
+        scrollToAbout={scrollToAbout} 
+        scrollToProjects={scrollToProjects} 
       /> 
 
       {/* Background Stars */}
-      <div style={{ position: "fixed", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0 }}>
+      <div className="stars-background">
         <Canvas camera={{ position: [0, 0, 1] }}>
           <ambientLight intensity={0.5} />
           <pointLight position={[10, 10, 10]} />
@@ -454,42 +879,23 @@ export default function LandingPage() {
         </Canvas>
       </div>
 
-      {/* Hero Section (MODIFIED: Split-Screen Layout) */}
-      <div 
-        style={{ 
-          height: "100vh", 
-          width: "100%", 
-          position: "relative", 
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          padding: "0 80px", // Added padding
-          zIndex: 10,
-        }}
-      >
-        {/* Left Side: Text and Buttons (Left-Aligned) */}
-        <div 
-          style={{ 
-            flex: '1 1 50%', 
-            maxWidth: '700px', 
-            fontFamily: "Orbitron, sans-serif", 
-            textShadow: "0 0 8px #0ff", 
-          }}
-        >
-          <h1 style={{ fontSize: "1.2rem", marginBottom: "5px" }}>
+      {/* Hero Section */}
+      <div className="hero-section">
+        {/* Left Side: Text and Buttons */}
+        <div className="hero-content">
+          <h1 className="hero-welcome">
             Welcome to my Portfolio!
           </h1>
 
-          <h2 style={{ fontSize: "2.5rem", marginBottom: "15px" }}>
+          <h2 className="hero-name">
             Hello, I'm Vineth Joseph Mallavarapu
           </h2>
 
-          <div style={{ minHeight: "100px", fontSize: "3rem" }}>
+          <div className="hero-type-animation">
             <TypeAnimation
               sequence={[
                 "Mechatronics Engineer", 1000,
                 "Robotics and Biomechanical Engineering", 2000,
-//                 "Candidate to Engineering Profession", 1000,
               ]}
               speed={30}
               wrapper="div"
@@ -497,106 +903,62 @@ export default function LandingPage() {
             />
           </div>
 
-          <p style={{ marginTop: "10px", fontSize: "1rem", lineHeight: "1.5em" }}>
+          <p className="hero-description">
             Pursuing a Master’s in Mechatronics, Robotics, and Biomechanical Engineering at the Technical University of Munich, building on a strong foundation in Mechatronics and Robotics.
           </p>
 
-          <div style={{ marginTop: "30px", display: "flex", gap: "20px" }}>
+          <div className="hero-buttons">
             <button
-              onClick={scrollToProjects} // Changed to scroll directly to Projects
-              style={{ 
-                ...viewDetailsButtonStyle, // Used a more prominent style for the main CTA
-                background: '#0ff',
-                color: '#000',
-                padding: "12px 24px",
-                borderRadius: "30px", 
-                boxShadow: "0 0 20px rgba(0, 255, 255, 0.5)",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.background = "#fff")}
-              onMouseLeave={(e) => (e.currentTarget.style.background = "#0ff")}
+              onClick={scrollToProjects}
+              className="hero-btn-primary"
             >
               View Projects
             </button>
             
             <button
               onClick={openLinkedIn}
-              style={{ 
-                ...tabButtonStyle, 
-                borderRadius: "30px", 
-                padding: "12px 24px",              border: "1px solid #0ff",
-                color: '#0ff',
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.background = "#0ff")}
-              onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
+              className="hero-btn-secondary"
             >
               Let's Connect
             </button>
           </div>
         </div>
 
-        {/* Right Side: Image/Visual (New Position) */}
-        <div style={{ flex: '1 1 40%', display: 'flex', justifyContent: 'center' }}>
+        {/* Right Side: Image/Visual */}
+        <div className="hero-image-container">
           <img 
             src="./images/vineth_pro.jpg"
             alt="Profile" 
-            style={{ 
-              width: "280px", 
-              height: '360px',
-              objectFit: 'contain',
-              borderRadius: "10%", // Changed to slightly rounded rectangle
-              border: "4px solid #0ff",
-              boxShadow: "0 0 40px rgba(0, 255, 255, 0.4)",
-            }} 
+            className="hero-profile-img"
           />
         </div>
       </div>
 
-      {/* About Me (UNCHANGED) */}
+      {/* About Me */}
       <section
         ref={aboutRef}
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          gap: "40px",
-          padding: "80px 80px",
-          fontFamily: "Orbitron, sans-serif",
-          justifyContent: "Left",
-          alignItems: "flex-start",
-          position: "relative",
-          zIndex: 10,
-        }}
+        className="about-section"
       >
-        <div style={{ maxWidth: "550px", flex: "1 1 60%", textAlign: "left" }}>
-          <h2 style={{ fontSize: "2.5rem", marginBottom: "20px", textShadow: "0 0 10px #0ff" }}>About Me</h2>
-          <p style={{ fontSize: "1.1rem", lineHeight: "1.8em", marginBottom: "15px" }}>
+        <div className="about-text">
+          <h2 className="about-title">About Me</h2>
+          <p className="about-paragraph">
             I am currently pursuing a Master’s in Mechatronics, Robotics, and Biomechanical Engineering at the Technical University of Munich, building on a strong foundation in Mechatronics from SRM Institute of Science and Technology.
           </p>
-          <p style={{ fontSize: "1.1rem", lineHeight: "1.8em", marginBottom: "15px" }}>
+          <p className="about-paragraph">
             My background has fueled a passion for robotics, intelligent control systems, and smart machines that integrate mechanical design with real-time decision-making.
           </p>
-          <p style={{ fontSize: "1.1rem", lineHeight: "1.8em" }}>
+          <p className="about-paragraph">
           Driven by curiosity and continuous learning, I aim to develop autonomous and intelligent systems that can positively influence industries such as automation, healthcare, and sustainable technologies.
           </p>
         </div>
 
-        <div
-          style={{
-            flex: "1 1 35%",
-            maxWidth: "450px",
-            backgroundColor: "#111",
-            border: "2px solid #0ff",
-            borderRadius: "12px",
-            padding: "30px",
-            color: "#0ff",
-            boxShadow: "0 0 20px rgba(0, 255, 255, 0.2)",
-          }}
-        >
-          <h2 style={{ fontSize: "2rem", marginBottom: "20px", textShadow: "0 0 8px #0ff" }}>
+        <div className="about-skills-box">
+          <h2 className="about-skills-title">
             Education & Skills
           </h2>
 
           <div style={{ marginBottom: "25px" }}>
-            <h3 style={{ fontSize: "1.2rem", marginBottom: "10px" }}>🎓 Education</h3>
+            <h3 className="about-skills-subtitle">🎓 Education</h3>
             <p style={{ marginBottom: "10px" }}>
               <strong>Technical University of Munich</strong><br />
               MSc in Mechatronics, Robotics & Biomechanical Engineering
@@ -608,29 +970,14 @@ export default function LandingPage() {
           </div>
 
           <div>
-            <h3 style={{ fontSize: "1.2rem", marginBottom: "10px" }}>🛠️ Skills</h3>
-            <div style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "10px",
-            }}>
+            <h3 className="about-skills-subtitle">🛠️ Skills</h3>
+            <div className="skills-tag-container">
               {[
                 "ROS", "SLAM", "Autonomous Navigation", "Computer Vision",
                 "ESP32 & IoT", "SolidWorks", "LLMs & NLP",
                 "Manipulators","Robotic Welding","Arduino","Rapberry Pi","Python","C++"
               ].map((skill, index) => (
-                <span
-                  key={index}
-                  style={{
-                    backgroundColor: "#0ff",
-                    color: "#000",
-                   padding: "8px 14px",
-                    borderRadius: "50px",
-                    fontSize: "0.85rem",
-                    fontWeight: "bold",
-                    whiteSpace: "nowrap",
-                  }}
-                >
+                <span key={index} className="skill-tag">
                   {skill}
                 </span>
               ))}
@@ -639,212 +986,114 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Work Section (MODIFIED: Vertical List Layout) */}
-      <section
-        ref={workRef}
-        style={{
-          padding: "60px 80px", // Adjusted padding
-       fontFamily: "Orbitron, sans-serif",
-          color: "#e6ffff",
-          position: "relative",
-          zIndex: 10,
-        }}
-      >
-        <h2 style={{ fontSize: "2.5rem", marginBottom: "40px", textShadow: "0 0 10px #0ff", textAlign: "center" }}>Expertise</h2>
+      {/* Work Section (Expertise) */}
+      <section ref={workRef} className="expertise-section">
+        <h2 className="section-title-center">Expertise</h2>
 
-        {/* --- MODIFIED: New Vertical List Container --- */}
-        <div style={{ 
-          display: "flex", 
-          flexDirection: "column",
-          gap: "15px", // Vertical spacing
-          maxWidth: '1000px', // Constrain width for better readability
-          margin: '0 auto', // Center the list
-        }}>
+        <div className="expertise-list">
           {expertiseDomains.map((domain) => {
-            const Icon = domainIcons[domain.title];
-            
-            // Handler to set filter and scroll
-            const handleDomainClick = (filter) => {
-              setActiveProjectFilter(filter); // Set the project filter state
-              scrollToProjects(); // Scroll down to the projects section
-            };
+            const Icon = domainIcons[domain.title];
+            const handleDomainClick = (filter) => {
+              setActiveProjectFilter(filter);
+              scrollToProjects();
+            };
 
-            return (
-              <div
-                key={domain.title}
-                style={domainListItemStyle(domain.color)}
-                onMouseEnter={(e) => handleHover(e, domain.color, true)}
-                onMouseLeave={(e) => handleHover(e, domain.color, false)}
-                onClick={() => handleDomainClick(domain.filter)} // ADDED: onClick handler
-              >
-                <Icon size={40} style={{ color: colorMap[domain.color].border, flexShrink: 0 }} />
-                <div style={{ flexGrow: 1 }}>
-                  <h3 style={{ fontSize: "1.4rem", margin: 0, marginBottom: "5px", color: "#fff" }}>
-                    {domain.title}
-                  </h3>
-                  <p style={{ fontSize: "0.95rem", margin: 0, lineHeight: "1.5" }}>
-                    {domain.desc}
-                  </p>
-                </div>
-                {/* REMOVED: "See all related projects" button */}
-              </div>
-            );
-          })}
+            return (
+              <div
+                key={domain.title}
+                style={domainListItemStyle(domain.color)} // Kept dynamic style
+                onMouseEnter={(e) => handleHover(e, domain.color, true)} // Kept dynamic hover
+                onMouseLeave={(e) => handleHover(e, domain.color, false)} // Kept dynamic hover
+                onClick={() => handleDomainClick(domain.filter)}
+        _     >
+                <Icon size={40} style={{ color: colorMap[domain.color].border, flexShrink: 0 }} />
+                <div style={{ flexGrow: 1 }}>
+                  <h3 className="expertise-item-title">
+                    {domain.title}
+                  </h3>
+                  <p className="expertise-item-desc">
+                    {domain.desc}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </section>
 
-    {/* --- Projects Section --- */}
-    <section ref={projectsRef} style={sectionStyle}>
-      <h2 style={titleStyle}>Featured Projects</h2>
+    {/* --- Projects Section --- */}
+    <section ref={projectsRef} className="projects-section">
+      <h2 className="section-title-left">Featured Projects</h2>
 
-      {/* Filter Tabs */}
-      <div style={filterTabContainerStyle}>
-        {filterCategories.map((category) => (
-          <button
-            key={category}
-            style={category === activeProjectFilter ? activeFilterTabStyle : filterTabStyle}
-            onClick={() => setActiveProjectFilter(category)}
-          >
-            {category}
-          </button>
-        ))}
-      </div>
+      {/* Filter Tabs */}
+      <div className="filter-tabs-container">
+        {filterCategories.map((category) => (
+          <button
+            key={category}
+            className={category === activeProjectFilter ? "filter-tab-active" : "filter-tab"}
+            onClick={() => setActiveProjectFilter(category)}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
 
-      {/* Project Card Grid */}
-      <div style={cardGridStyle}>
-        {filteredProjects.map((project) => (
-          <div 
-            key={project.id} 
-            style={cardStyle}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "translateY(-5px)";
-              e.currentTarget.style.boxShadow = "0 8px 30px rgba(0, 255, 255, 0.3)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "translateY(0px)";
-              e.currentTarget.style.boxShadow = "0 4px 20px rgba(0, 0, 0, 0.4)";
-            }}
-          >
-            <img src={project.image} alt={project.title} style={cardImageStyle} />
-            <div style={cardContentStyle}>
-              <div> {/* Wrapper for top content */}
-                <h3 style={cardTitleStyle}>{project.title}</h3>
-                <p style={cardDescriptionStyle}>{project.description}</p>
-                <div style={cardTagContainerStyle}>
-                  {project.tags.map((tag, index) => (
-                    <span key={index} style={cardTagStyle}>{tag}</span>
-                  ))}
+      {/* Project Card Grid */}
+      <div className="project-grid">
+        {filteredProjects.map((project) => (
+          <div 
+            key={project.id} 
+            className="project-card"
+          >
+            <img src={project.image} alt={project.title} className="card-image" />
+            <div className="card-content">
+              <div> {/* Wrapper for top content */}
+                <h3 className="card-title">{project.title}</h3>
+                <p className="card-description">{project.description}</p>
+                <div className="card-tag-container">
+                    {project.tags.map((tag) => (
+                    <span key={tag} className="card-tag">{tag}</span>
+                    ))}
                 </div>
               </div>
-              <button
-                style={viewDetailsButtonStyle}
-                onClick={() => openModal(project)}
-                onMouseEnter={(e) => (e.currentTarget.style.background = "#fff")}
-                onMouseLeave={(e) => (e.currentTarget.style.background = "#0ff")}
-              >
-                View Details
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
+              <div> {/* Wrapper for button to push it down */}
+                <button 
+                    className="card-details-button"
+                    onClick={() => openModal(project)}
+                >
+                    View Details
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
 
-    {/* --- REMOVED COURSES SECTION --- */}
+    {/* --- Modal --- */}
+    {isModalOpen && modalContent && (
+      <div className="modal-backdrop" onClick={closeModal}>
+        <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+          <button className="modal-close-btn" onClick={closeModal}>
+            <X size={20} />
+          </button>
+          
+          <img src={modalContent.image} alt={modalContent.title} className="modal-image" />
+          <h2 className="modal-title">{modalContent.title}</h2>
 
-    {/* --- Modal --- */}
-    {isModalOpen && (
-      <div
-        style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          backgroundColor: "rgba(0, 0, 0, 0.8)",
-          backdropFilter: "blur(10px)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          zIndex: 1000,
-          overflowY: 'auto',
-          padding: '20px',
-        }}
-        onClick={closeModal}
-      >
-        <div
-          style={{
-            position: 'relative',
-            background: "rgba(10, 30, 40, 0.9)",
-            border: "1px solid #0ff",
-            borderRadius: "15px",
-            maxWidth: "800px",
-            width: '100%',
-            maxHeight: '90vh',
-            overflowY: 'auto',
-            color: "#e6ffff",
-            fontFamily: "Orbitron, sans-serif",
-            boxShadow: "0 0 40px rgba(0, 255, 255, 0.3)",
-            display: 'flex',
-            flexDirection: 'column',
-          }}
-          onClick={(e) => e.stopPropagation()} // Prevent modal from closing on inner click
-        >
-          {/* Close Button */}
-          <button
-            onClick={closeModal}
-            style={{
-              position: "absolute",
-              top: "15px",
-              right: "15px",
-              background: "transparent",
-              border: "none",
-              color: "#0ff",
-              cursor: "pointer",
-              zIndex: 10,
-            }}
-          >
-            <X size={30} />
-          </button>
+          <div className="card-tag-container" style={{ marginBottom: "20px" }}>
+            {modalContent.tags.map((tag) => (
+              <span key={tag} className="card-tag">{tag}</span>
+            ))}
+          </div>
 
-          {/* Modal Content */}
-          <img 
-            src={modalContent.image} 
-            alt={modalContent.title} 
-            style={{ 
-              width: '100%', 
-              height: '350px', 
-              objectFit: 'cover', 
-              borderTopLeftRadius: '14px', 
-              borderTopRightRadius: '14px' 
-            }} 
-          />
-          
-          <div style={{ padding: '30px' }}>
-            <h2 style={{ ...cardTitleStyle, fontSize: '2rem', marginBottom: '15px' }}>
-              {modalContent.title}
-            </h2>
-            
-            <div style={{ ...cardTagContainerStyle, marginBottom: '20px' }}>
-              {modalContent.tags.map((tag, index) => (
-                <span key={index} style={cardTagStyle}>{tag}</span>
-              ))}
-            </div>
+          <p className="modal-details">{modalContent.details}</p>
 
-            <h4 style={{ color: '#0ff', marginBottom: '10px', fontSize: '1.1rem' }}>Description</h4>
-            <p style={{ 
-              ...cardDescriptionStyle, 
-              fontSize: '1rem', 
-              lineHeight: '1.7', 
-              whiteSpace: 'pre-wrap' // Preserves formatting from the details string
-            }}>
-              {modalContent.details}
-            </p>
-          </div>
-        </div>
-      </div>
-    )}
+        </div>
+      </div>
+    )}
 
   </div>
+</>
   );
 }
