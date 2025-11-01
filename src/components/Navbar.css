@@ -85,31 +85,109 @@
   box-shadow: 0 0 12px #0ff;
 }
 
-/* --- Mobile adjustments --- */
+/* --- Mobile adjustments (Max 768px wide) --- */
 @media (max-width: 768px) {
-  .ios-navbar {
-    width: 200%;
-    /* max-width: 510px; */
-    /* bottom: 10px; */
-    top: auto;
-    flex-direction: row;
-    justify-content: space-around;
-    border-radius: 20px;
-  }
+    /* 1. Mobile Navbar Base */
+    .ios-navbar {
+        /* Move the small glass bar to the top left and make it smaller */
+        width: 90px; 
+        max-width: 90px;
+        top: 15px;
+        left: 15px;
+        transform: none; /* Remove translateX centering */
+        padding: 0.5rem;
+        justify-content: center;
+        border-radius: 15px;
+        box-shadow: 0 4px 30px rgba(0, 255, 255, 0.1);
+    }
+    
+    .ios-navbar.scrolled {
+        transform: none; /* Remove scale shrink on scroll for mobile */
+    }
 
-  .nav-left {
-    display: none;
-  }
+    /* Hide Desktop Elements */
+    .nav-left { display: none; }
+    .nav-right { display: none; }
+    
+    /* Hide the default nav-center links entirely */
+    .nav-center {
+        display: none; 
+    }
+    
+    /* 2. Hamburger Button - Make sure it is VISIBLE */
+    .mobile-menu-toggle {
+        display: block; /* Show the button only on mobile */
+        background: none;
+        border: none;
+        color: #0ff;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1001;
+        outline: none;
+        transition: color 0.3s;
+    }
 
-  .nav-right {
-    display: none;
-  }
+    .mobile-menu-toggle:hover {
+        color: #fff;
+    }
 
-  .nav-center {
-    gap: 1rem;
-  }
+    /* 3. Full-Screen Menu (when open) */
+    .nav-center.mobile-open {
+        display: flex; /* Override display:none when open */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2.5rem; 
+        
+        /* Cyberpunk Full-Screen Overlay Style */
+        background: rgba(10, 25, 47, 0.98); 
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        z-index: 999; 
+        animation: slideIn 0.3s ease-out; 
+    }
 
-  .nav-center a {
-    font-size: 1.0rem;
-  }
+    .nav-center.mobile-open .nav-link {
+        font-size: 1.5rem; 
+        padding: 10px 0;
+        display: flex;
+        flex-direction: row; 
+        gap: 10px;
+        align-items: center;
+    }
+
+    .nav-center.mobile-open .nav-icon {
+        width: 28px;
+        height: 28px;
+    }
+    
+    /* Animation for menu entry (optional) */
+    @keyframes slideIn {
+        from { opacity: 0; transform: translateY(-5%); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+}
+
+/* --- Desktop adjustments (Min 769px wide) --- */
+@media (min-width: 769px) {
+    /* CRITICAL: Ensure the mobile toggle button is HIDDEN on large screens */
+    .mobile-menu-toggle {
+        display: none;
+    }
+    
+    /* Ensure the nav-center returns to a row display if somehow the mobile-open class persists */
+    .nav-center.mobile-open {
+        display: flex; 
+        position: static;
+        width: auto;
+        height: auto;
+        flex-direction: row;
+        background: none;
+        backdrop-filter: none;
+    }
 }

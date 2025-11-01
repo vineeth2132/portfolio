@@ -715,15 +715,20 @@ const allStyles = `
     }
   }
 
-  /* --- Phone (480px) --- */
+/* --- Phone (480px) --- */
   @media (max-width: 480px) {
+    /* Hero Section Font Increases */
     .hero-name {
-      font-size: 1.8rem;
+      font-size: 2rem; /* Increased from 1.8rem */
     }
 
     .hero-type-animation {
-      font-size: 1.5rem;
-      min-height: 60px;
+      font-size: 1.8rem; /* Increased from 1.5rem */
+      min-height: 50px;
+    }
+    
+    .hero-description {
+        font-size: 1rem; /* Ensured standard reading size */
     }
 
     .hero-buttons {
@@ -734,14 +739,24 @@ const allStyles = `
     .hero-btn-primary, .hero-btn-secondary {
         width: 100%;
         max-width: 300px;
+        padding: 10px 20px;
     }
     
+    /* Section Title Increases */
+    .section-title-left, .about-title, .section-title-center {
+        font-size: 2.2rem; /* Consistent large size for headers */
+    }
+    
+    .about-paragraph {
+        font-size: 1rem; /* Ensured standard reading size */
+    }
+
     .filter-tabs-container {
         justify-content: center;
     }
     
     .filter-tab, .filter-tab-active {
-        font-size: 0.8rem;
+        font-size: 0.9rem; /* Slightly increased filter button text */
         padding: 8px 15px;
     }
     
@@ -756,11 +771,11 @@ const allStyles = `
     }
     
     .modal-title {
-        font-size: 1.5rem;
+        font-size: 1.7rem;
     }
     
     .modal-image {
-        height: 200px;
+        height: 180px;
     }
   }
 `;
