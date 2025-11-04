@@ -178,7 +178,7 @@ function MovingStars() {
 // We inject all styles this way to keep it in one file and allow for media queries.
 const allStyles = `
   .landing-page-container {
-    width: 100vw;
+    width: 100%;
     position: relative;
     color: #0ff;
     min-height: 100vh;
@@ -296,7 +296,7 @@ const allStyles = `
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
-    padding: 80px 80px;
+    padding: 70px 70px;
     font-family: "Orbitron", sans-serif;
     justify-content: flex-start;
     align-items: flex-start;
@@ -458,9 +458,9 @@ const allStyles = `
   }
 
   .project-card {
-    flex: 1 1 350px;
-    max-width: 400px;
-    min-width: 300px;
+    flex: 1 1 300px;  /* Make the "ideal" size smaller */
+    max-width: 350px;  /* Keep a reasonable max size */
+    min-width: 280px;  /* Allow the card to get much smaller */
     background-color: rgba(0, 40, 60, 0.4);
     border: 1px solid rgba(0, 255, 255, 0.3);
     border-radius: 12px;
@@ -632,153 +632,344 @@ const allStyles = `
 
   /* ---  responsiveness --- */
   
-  /* --- Tablet (1024px) --- */
-  @media (max-width: 1024px) {
-    .hero-section,
-    .about-section,
-    .expertise-section,
-    .projects-section {
-      padding: 60px 40px;
-    }
+/* --- RESPONSIVENESS --- */
 
-    .hero-section {
-      height: auto;
-      min-height: 100vh;
-    }
+/* ---------- Tablet (≤1024px) ---------- */
+@media (max-width: 1024px){
+
+  .hero-section {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    padding: 20px 10px;
+    gap: 12px; /* reduces white gaps */
+    height: auto !important;
+    min-height: auto !important;
   }
 
-  /* --- Small Tablet / Large Phone (768px) --- */
-  @media (max-width: 768px) {
-    .hero-section {
-      flex-direction: column-reverse;
-      justify-content: center;
-      text-align: center;
-      padding: 80px 20px 40px 20px;
-      height: auto;
-    }
-
-    .hero-content {
-      max-width: 100%;
-    }
-
-    .hero-name {
-      font-size: 2rem;
-    }
-
-    .hero-type-animation {
-      font-size: 2.2rem;
-      min-height: 80px;
-    }
-
-    .hero-buttons {
-      justify-content: center;
-    }
-
-    .hero-profile-img {
-      width: 200px;
-      height: 260px;
-      margin-bottom: 30px;
-    }
-
-    .about-section {
-      flex-direction: column;
-      padding: 60px 20px;
-    }
-
-    .about-text, .about-skills-box {
-      max-width: 100%;
-      flex-basis: 100%;
-    }
-
-    .expertise-section, .projects-section {
-      padding: 60px 20px;
-    }
-
-    .section-title-left, .about-title {
-      text-align: center;
-    }
-    
-    .section-title-left {
-        font-size: 2rem;
-    }
-    
-    .about-title {
-        font-size: 2rem;
-    }
-
-    .about-skills-title {
-      font-size: 1.8rem;
-    }
-    
-    .expertise-item-title {
-        font-size: 1.2rem;
-    }
+  .hero-welcome {
+    font-size: 1.3rem;
+    margin-bottom: 4px;
   }
 
-/* --- Phone (480px) --- */
-  @media (max-width: 480px) {
-    /* Hero Section Font Increases */
-    .hero-name {
-      font-size: 2rem; /* Increased from 1.8rem */
-    }
-
-    .hero-type-animation {
-      font-size: 1.8rem; /* Increased from 1.5rem */
-      min-height: 50px;
-    }
-    
-    .hero-description {
-        font-size: 1rem; /* Ensured standard reading size */
-    }
-
-    .hero-buttons {
-      flex-direction: column;
-      align-items: center;
-    }
-    
-    .hero-btn-primary, .hero-btn-secondary {
-        width: 100%;
-        max-width: 300px;
-        padding: 10px 20px;
-    }
-    
-    /* Section Title Increases */
-    .section-title-left, .about-title, .section-title-center {
-        font-size: 2.2rem; /* Consistent large size for headers */
-    }
-    
-    .about-paragraph {
-        font-size: 1rem; /* Ensured standard reading size */
-    }
-
-    .filter-tabs-container {
-        justify-content: center;
-    }
-    
-    .filter-tab, .filter-tab-active {
-        font-size: 0.9rem; /* Slightly increased filter button text */
-        padding: 8px 15px;
-    }
-    
-    .project-card {
-        min-width: 90%;
-    }
-    
-    .modal-content {
-        padding: 20px;
-        width: 95%;
-        height: 85vh;
-    }
-    
-    .modal-title {
-        font-size: 1.7rem;
-    }
-    
-    .modal-image {
-        height: 180px;
-    }
+  .hero-name {
+    font-size: 1.55rem;
+    margin-bottom: 8px;
+    line-height: 1.3;
   }
-`;
+
+  .hero-type-animation {
+    font-size: 1.35rem;
+    min-height: 50px;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+    line-height: 1.45rem;
+    max-width: 92%;
+    margin: 0 auto 8px auto;
+  }
+
+  .hero-profile-img {
+    width: 160px;
+    height: 200px;
+    margin-top: 6px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-btn-primary,
+  .hero-btn-secondary {
+    padding: 10px 18px;
+    font-size: 0.85rem;
+    width: 75%;
+    max-width: 260px;
+  }
+
+  /* About */
+  .about-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 35px 35px;
+    gap: 30px;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .about-title {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .about-paragraph {
+    font-size: 1rem;
+    line-height: 1.55rem;
+    flex: 1 1 60%;
+    text-align: left;
+  }
+
+  .about-skills-box {
+    width: 100%;
+    padding: 20px;
+  }
+
+  /* Expertise */
+  .expertise-section {
+    padding: 35px 18px;
+  }
+
+  .section-title-center {
+    font-size: 1.9rem;
+  }
+
+  .expertise-item {
+    text-align: center !important;
+    flex-direction: column !important;
+    gap: 8px;
+    padding: 15px !important;
+  }
+
+  .expertise-item-title {
+    font-size: 1.2rem;
+  }
+
+  .expertise-item-desc {
+    font-size: 0.9rem;
+  }
+
+  /* Projects */
+  .projects-section {
+    padding: 35px 18px;
+  }
+
+  .section-title-left {
+    text-align: center;
+    font-size: 1.9rem;
+  }
+
+  .filter-tabs-container {
+    justify-content: center;
+  }
+
+  .project-card {
+    min-width: 260px;
+  }
+
+  .card-content {
+    text-align: center;
+  }
+
+  .card-description {
+    font-size: 0.9rem;
+    line-height: 1.45rem;
+  }
+
+  .card-tag-container {
+    justify-content: center;
+  }
+
+  .card-details-button {
+    align-self: center;
+  }
+
+  /* Modal */
+  .modal-content {
+    padding: 20px;
+    height: 88vh;
+  }
+
+  .modal-image {
+    height: 200px;
+  }
+
+  .modal-title {
+    font-size: 1.4rem;
+  }
+
+  .modal-details {
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+  }
+}
+
+/* ---------- Mobile (≤820px) ---------- */
+@media (max-width: 820px){
+
+  .hero-section {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    padding: 20px 10px;
+    gap: 12px; /* reduces white gaps */
+    height: auto !important;
+    min-height: auto !important;
+  }
+
+  .hero-welcome {
+    font-size: 1.3rem;
+    margin-bottom: 4px;
+  }
+
+  .hero-name {
+    font-size: 1.55rem;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .hero-type-animation {
+    font-size: 1.35rem;
+    min-height: 50px;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+    line-height: 1.45rem;
+    max-width: 92%;
+    margin: 0 auto 8px auto;
+  }
+
+  .hero-profile-img {
+    width: 160px;
+    height: 200px;
+    margin-top: 6px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-btn-primary,
+  .hero-btn-secondary {
+    padding: 10px 18px;
+    font-size: 0.85rem;
+    width: 75%;
+    max-width: 260px;
+  }
+
+  /* About */
+  .about-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 35px 35px;
+    max-width: 300px;
+    gap: 30px;
+    right
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .about-title {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .about-paragraph {
+    font-size: 1rem;
+    line-height: 1.55rem;
+    text-align: justify;
+  }
+
+  .about-skills-box {
+    width: 100%;
+    padding: 20px;
+  }
+
+  /* Expertise */
+  .expertise-section {
+    padding: 35px 18px;
+  }
+
+  .section-title-center {
+    font-size: 1.9rem;
+  }
+
+  .expertise-item {
+    text-align: center !important;
+    flex-direction: column !important;
+    gap: 8px;
+    padding: 15px !important;
+  }
+
+  .expertise-item-title {
+    font-size: 1.2rem;
+  }
+
+  .expertise-item-desc {
+    font-size: 0.9rem;
+  }
+
+  /* Projects */
+  .projects-section {
+    padding: 35px 18px;
+  }
+
+  .section-title-left {
+    text-align: center;
+    font-size: 1.9rem;
+  }
+
+  .filter-tabs-container {
+    justify-content: center;
+  }
+
+  .project-card {
+    min-width: 260px;
+  }
+
+  .card-content {
+    text-align: center;
+  }
+
+  .card-description {
+    font-size: 0.9rem;
+    line-height: 1.45rem;
+  }
+
+  .card-tag-container {
+    justify-content: center;
+  }
+
+  .card-details-button {
+    align-self: center;
+  }
+
+  /* Modal */
+  .modal-content {
+    padding: 20px;
+    height: 88vh;
+  }
+
+  .modal-image {
+    height: 200px;
+  }
+
+  .modal-title {
+    font-size: 1.4rem;
+  }
+
+  .modal-details {
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+  }
+}
+
+/* ---------- END RESPONSIVE ---------- */
+
+
+  /* --- END: MOBILE OPTIMIZATIONS --- */
+`; 
 
 
 export default function LandingPage() {
@@ -918,20 +1109,21 @@ export default function LandingPage() {
             />
           </div>
 
-          <p className="hero-description">
-            Pursuing a Master’s in Mechatronics, Robotics, and Biomechanical Engineering at the Technical University of Munich, building on a strong foundation in Mechatronics and Robotics.
-          </p>
+            <p className="hero-description">
+              Pursuing a Master’s in Mechatronics, Robotics, and Biomechanical Engineering at the<br />
+              Technical University of Munich, building on a strong foundation in Mechatronics and Robotics.
+            </p>
 
           <div className="hero-buttons">
             <button
               onClick={scrollToProjects}
-              className="hero-btn-primary"
+            className="hero-btn-primary"
             >
               View Projects
             </button>
             
             <button
-              onClick={openLinkedIn}
+             onClick={openLinkedIn}
               className="hero-btn-secondary"
             >
               Let's Connect
@@ -943,7 +1135,7 @@ export default function LandingPage() {
         <div className="hero-image-container">
           <img 
             src="./images/vineth_pro.jpg"
-            alt="Profile" 
+            alt="Profile" 
             className="hero-profile-img"
           />
         </div>
@@ -961,7 +1153,7 @@ export default function LandingPage() {
           </p>
           <p className="about-paragraph">
             My background has fueled a passion for robotics, intelligent control systems, and smart machines that integrate mechanical design with real-time decision-making.
-          </p>
+       </p>
           <p className="about-paragraph">
           Driven by curiosity and continuous learning, I aim to develop autonomous and intelligent systems that can positively influence industries such as automation, healthcare, and sustainable technologies.
           </p>
@@ -969,7 +1161,7 @@ export default function LandingPage() {
 
         <div className="about-skills-box">
           <h2 className="about-skills-title">
-            Education & Skills
+          Education & Skills
           </h2>
 
           <div style={{ marginBottom: "25px" }}>
@@ -980,20 +1172,20 @@ export default function LandingPage() {
             </p>
             <p>
               <strong>SRM Institute of Science and Technology</strong><br />
-              B.Tech in Mechatronics Engineering with Specialization in Robotics
+           B.Tech in Mechatronics Engineering with Specialization in Robotics
             </p>
           </div>
 
           <div>
             <h3 className="about-skills-subtitle">🛠️ Skills</h3>
-            <div className="skills-tag-container">
+          <div className="skills-tag-container">
               {[
                 "ROS", "SLAM", "Autonomous Navigation", "Computer Vision",
                 "ESP32 & IoT", "SolidWorks", "LLMs & NLP",
                 "Manipulators","Robotic Welding","Arduino","Rapberry Pi","Python","C++"
               ].map((skill, index) => (
                 <span key={index} className="skill-tag">
-                  {skill}
+             {skill}
                 </span>
               ))}
             </div>
@@ -1001,7 +1193,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Work Section (Expertise) */}
+     {/* Work Section (Expertise) */}
       <section ref={workRef} className="expertise-section">
         <h2 className="section-title-center">Expertise</h2>
 
@@ -1016,15 +1208,16 @@ export default function LandingPage() {
             return (
               <div
                 key={domain.title}
-                style={domainListItemStyle(domain.color)} // Kept dynamic style
+                 style={domainListItemStyle(domain.color)} // Kept dynamic style
                 onMouseEnter={(e) => handleHover(e, domain.color, true)} // Kept dynamic hover
                 onMouseLeave={(e) => handleHover(e, domain.color, false)} // Kept dynamic hover
                 onClick={() => handleDomainClick(domain.filter)}
-        _     >
+                className="expertise-item" // Added class for mobile styling
+        >
                 <Icon size={40} style={{ color: colorMap[domain.color].border, flexShrink: 0 }} />
                 <div style={{ flexGrow: 1 }}>
                   <h3 className="expertise-item-title">
-                    {domain.title}
+                {domain.title}
                   </h3>
                   <p className="expertise-item-desc">
                     {domain.desc}
@@ -1034,7 +1227,7 @@ export default function LandingPage() {
             );
           })}
         </div>
-      </section>
+   </section>
 
     {/* --- Projects Section --- */}
     <section ref={projectsRef} className="projects-section">
@@ -1045,7 +1238,7 @@ export default function LandingPage() {
         {filterCategories.map((category) => (
           <button
             key={category}
-            className={category === activeProjectFilter ? "filter-tab-active" : "filter-tab"}
+           className={category === activeProjectFilter ? "filter-tab-active" : "filter-tab"}
             onClick={() => setActiveProjectFilter(category)}
           >
             {category}
@@ -1055,7 +1248,7 @@ export default function LandingPage() {
 
       {/* Project Card Grid */}
       <div className="project-grid">
-        {filteredProjects.map((project) => (
+     {filteredProjects.map((project) => (
           <div 
             key={project.id} 
             className="project-card"
@@ -1089,17 +1282,17 @@ export default function LandingPage() {
     {isModalOpen && modalContent && (
       <div className="modal-backdrop" onClick={closeModal}>
         <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-          <button className="modal-close-btn" onClick={closeModal}>
+        <button className="modal-close-btn" onClick={closeModal}>
             <X size={20} />
           </button>
           
           <img src={modalContent.image} alt={modalContent.title} className="modal-image" />
-          <h2 className="modal-title">{modalContent.title}</h2>
+      <h2 className="modal-title">{modalContent.title}</h2>
 
           <div className="card-tag-container" style={{ marginBottom: "20px" }}>
             {modalContent.tags.map((tag) => (
               <span key={tag} className="card-tag">{tag}</span>
-            ))}
+         ))}
           </div>
 
           <p className="modal-details">{modalContent.details}</p>
