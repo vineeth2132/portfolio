@@ -42,7 +42,7 @@ const projectData = [
     description: "Worked on various design parameters, such as selection of sensors, CAD modelling, motor speed optimization and PID Tuning to complete the line following as fast as it could.",
     image: "./images/line_follower.jpg",
     tags: ["Solidworks", "Ardiono IDE", "Embedded C", "PID Control", "3D Printing"],
-    details: `Worked on various design parameters, such as selection of sensors, CAD modelling, and motor speed optimization to complete the line following as fast as it could. focusing mainly on PID tuning.Participated in the Reroute competition organized by the SRM Institute ofScience and Technology.`,
+    details: `Worked on various design parameters, such as selection of sensors, CAD modelling, and motor speed optimization to complete the line following as fast as it could. focusing mainly on PID tuning.Participated in the Reroute competition organized by the SRM Institute of Science and Technology.`,
   },
   {
     id: 5,
