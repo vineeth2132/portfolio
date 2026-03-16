@@ -19,7 +19,7 @@ const projectData = [
   },
   {
     id: 2,
-    title: "Automonous Mobile Robot usign SLAM Algorithm - still in progress",
+    title: "Automonous Mobile Robot usign SLAM Algorithm - currently working",
     category: "Software Simulation",
     description: "Designed and developed an autonomous mobile robot leveraging ROS 2 Jazzy for navigation and control.",
     image: "/images/projects/f1_telemetry.jpg",
@@ -113,7 +113,7 @@ Through this setup, users can issue simple voice commands like “Turn on the li
   },
   {
     id: 12,
-    title: "Natural Language Interface for ROS-Based Robots - still in progress",
+    title: "Natural Language Interface for ROS-Based Robots - currently working",
     category: "AI & ML",
     description: "Developed a voice-based robot assistant integrating Ollama’s LLaMA NLP model with ROS for offline natural language interaction and real-time voice responses.",
     image: "./images/wetherr.jpg",
