@@ -29,8 +29,8 @@ export default function ContactPage() {
         <h2>Contact Information</h2>
         <p>Say something to start a chat!</p>
         <ul>
-          <li>📍 Location: India</li>
-          <li>📞 Phone: +91-7997616471</li>
+          <li>📍 Location: Germany,Munich</li>
+          <li>📞 Phone: +49 15511447466</li>
           <li>📧 Email: vineethjoseph12@gmail.com</li>
           <li>🔗 LinkedIn: linkedin.com/in/vineth-joseph-4a36931a6</li>
         </ul>
