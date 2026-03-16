@@ -70,7 +70,7 @@ export default function ResumePage() {
         }}
       >
         <img
-          src="/resume/Vineth_Joseph_Choudary_Resume_page.jpg"
+          src="/resume/resume1.png"
           alt="Resume"
           style={{
             width: "100%",
@@ -80,7 +80,7 @@ export default function ResumePage() {
           }}
         />
         <a
-          href="/resume/Vineth_Joseph_Choudary_Resume.pdf"
+          href="/resume/resume1.pdf"
           download
           style={{
             display: "inline-block",
