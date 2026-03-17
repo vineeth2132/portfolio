@@ -48,7 +48,7 @@ export default function ContactPage() {
           </div>
           <textarea name="message" placeholder="Write your message..." rows={5} required />
           <div className="buttons">
-            <button type="button" onClick={() => navigate("/home")}>Back to Home</button>
+            <button type="button" onClick={() => navigate("/LandingPage")}>Back to Home</button>
             <button type="submit" className="send">Send Message</button>
           </div>
         </form>

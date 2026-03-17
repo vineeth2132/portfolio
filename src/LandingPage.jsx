@@ -14,7 +14,7 @@ const projectData = [
     category: "Control",
     description: "Developed an automated millet classification system that uses deep learning for accurate millet variety identification",
     image: "./images/millet.jpg",
-    tags: ["Deep learning", "Pytorch", "Computer Vision", "Algorithm Development", "Solidworks", "Arduino", "RapberryPi"],
+    tags: ["Deep learning", "Pytorch", "Computer Vision", "Algorithm Development", "Solidworks", "Arduino", "RaspberryPi"],
     details: `Developed an automated millet classification system that uses deep learning for accurate millet variety identification via an upper camera with an accuracy of 85%, coupled with load cells for weight estimation.This project is also featured with automated billing systems basically automates the process of purchasing loose groceries such as millets,Atta,Dal and so on.`,
   },
   {

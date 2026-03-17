@@ -13,7 +13,7 @@ const projectsData = [
     description:
       "Designed and developed an autonomous mobile robot leveraging ROS 2 Jazzy for navigation and control. Implemented SLAM (Simultaneous Localization and Mapping) algorithms to enable real-time mapping and autonomous path planning. Additionally, integrated a LLaMA-based Large Language Model (LLM) for interactive, voice-based user commands, creating a seamless fusion of robotics and natural language understanding.",
     techStack: ["SolidWorks", "Raspberry PI", "Python", "ROS 2", "SLAM"],
-    video: "/videos/clim3.mp4",
+    // video: "/videos/clim3.mp4",
   },
   {
     id: "Project-2",
