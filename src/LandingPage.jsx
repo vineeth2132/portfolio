@@ -1182,7 +1182,7 @@ export default function LandingPage() {
               {[
                 "ROS", "SLAM", "Autonomous Navigation", "Computer Vision",
                 "ESP32 & IoT", "SolidWorks", "LLMs & NLP",
-                "Manipulators","Robotic Welding","Arduino","Rapberry Pi","Python","C++"
+                "Manipulators","Robotic Welding","Arduino","Raspberry Pi","Python","C++"
               ].map((skill, index) => (
                 <span key={index} className="skill-tag">
              {skill}
