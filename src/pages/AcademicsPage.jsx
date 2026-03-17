@@ -14,7 +14,7 @@ function MovingStars() {
       scrollRef.current = window.scrollY * 0.0015;
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("touchmove", handleScroll, { passive: true }); // Added
+    window.addEventListener("touchmove", handleScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("touchmove", handleScroll);
@@ -40,8 +40,19 @@ export default function AcademicsPage() {
     "/certificates/cert6.jpg",
   ];
 
+  const isMobile = typeof window !== "undefined" && window.innerWidth <= 820;
+
   return (
-    <div style={{ minHeight: "200vh", width: "100vw", background: "black" }}>
+    <div
+      style={{
+        minHeight: "200vh",
+        width: "100%",
+        maxWidth: "100%",
+        overflowX: "hidden",
+        background: "black",
+        position: "relative",
+      }}
+    >
       {/* Starry 3D Background */}
       <Canvas
         style={{
@@ -49,6 +60,8 @@ export default function AcademicsPage() {
           top: 0,
           left: 0,
           zIndex: 0,
+          width: "100%",
+          height: "100%",
         }}
         camera={{ position: [0, 0, 10], fov: 75 }}
       >
@@ -62,6 +75,8 @@ export default function AcademicsPage() {
           position: "relative",
           zIndex: 1,
           paddingTop: "5rem",
+          paddingLeft: isMobile ? "16px" : "0",
+          paddingRight: isMobile ? "16px" : "0",
           textAlign: "center",
         }}
       >
@@ -76,12 +91,14 @@ export default function AcademicsPage() {
           position: "relative",
           zIndex: 1,
           margin: "2rem auto",
+          width: isMobile ? "calc(100% - 24px)" : "90%",
           maxWidth: "900px",
-          padding: "2rem",
+          padding: isMobile ? "1rem" : "2rem",
           background: "rgba(0, 255, 255, 0.05)",
           border: "2px solid #00ffff",
           borderRadius: "12px",
           boxShadow: "0 0 20px #00ffff55",
+          boxSizing: "border-box",
         }}
       >
         {/* Journal Publications */}
@@ -95,9 +112,9 @@ export default function AcademicsPage() {
         <h2 style={{ color: "#0ff", marginTop: "1.5rem" }}>Patents</h2>
         <p style={{ lineHeight: "1.5", color: "#ccc" }}>
           - Title: A system for identifying and weighing loose items including Millets <br />
-           Inventors: GNANASANKARAN MADHUMITHA, MALLAVARAPU VINETH JOSEPH, CHELLI LEELA RAM <br />
-           Patent Application Number: 202541006107 <br />
-           Publication Date: 31/01/2025 <br />
+          Inventors: GNANASANKARAN MADHUMITHA, MALLAVARAPU VINETH JOSEPH, CHELLI LEELA RAM <br />
+          Patent Application Number: 202541006107 <br />
+          Publication Date: 31/01/2025 <br />
         </p>
 
         {/* Certificates */}
@@ -105,7 +122,7 @@ export default function AcademicsPage() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(2, 1fr)",
+            gridTemplateColumns: isMobile ? "2fr" : "repeat(2, 1fr)",
             gap: "1rem",
             marginTop: "1rem",
           }}

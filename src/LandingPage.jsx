@@ -808,7 +808,7 @@ const allStyles = `
     justify-content: flex-start;
     text-align: center;
     padding: 20px 10px;
-    gap: 12px; /* reduces white gaps */
+    gap: 12px;
     height: auto !important;
     min-height: auto !important;
   }
@@ -862,12 +862,20 @@ const allStyles = `
   .about-section {
     flex-direction: column;
     text-align: center;
-    padding: 35px 35px;
-    max-width: 300px;
+    padding: 35px 20px;
     gap: 30px;
-    right
     align-items: center;
     justify-content: flex-start;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .about-text {
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto;
+    text-align: left;
+    box-sizing: border-box;
   }
 
   .about-title {
@@ -883,7 +891,9 @@ const allStyles = `
 
   .about-skills-box {
     width: 100%;
+    max-width: 550px;
     padding: 20px;
+    box-sizing: border-box;
   }
 
   /* Expertise */
@@ -964,7 +974,6 @@ const allStyles = `
     line-height: 1.5rem;
   }
 }
-
 /* ---------- END RESPONSIVE ---------- */
 
 

@@ -28,21 +28,19 @@ function MovingStars() {
 
 export default function ExperiencePage() {
   const professionalExperiences = [
-
     {
       role: "Drone Operations Support ",
       company: "Grace Drone Technologies",
       date: "Oct 2024 – Sept 2025",
       details:
-        "During my time at Grace Drone Technologies, I worked in Drone Operations Support, where I was actively involved in both field operations and technical tasks. My responsibilities included assisting with pre-flight and post-flight activities such as drone calibration, battery management, and safety checks. I supported mission planning and aerial surveys using DroneDeploy for automated flight path planning, mapping, and data collection, while also contributing to survey and inspection projects by processing aerial data and preparing site layouts with AutoCAD. In addition, I managed drone-captured data by generating orthomosaics, organizing outputs, and preparing them for client reports. Working closely with pilots and engineers, I ensured safe, efficient, and regulation-compliant operations throughout each mission. "
+        "During my time at Grace Drone Technologies, I worked in Drone Operations Support, where I was actively involved in both field operations and technical tasks. My responsibilities included assisting with pre-flight and post-flight activities such as drone calibration, battery management, and safety checks. I supported mission planning and aerial surveys using DroneDeploy for automated flight path planning, mapping, and data collection, while also contributing to survey and inspection projects by processing aerial data and preparing site layouts with AutoCAD. In addition, I managed drone-captured data by generating orthomosaics, organizing outputs, and preparing them for client reports. Working closely with pilots and engineers, I ensured safe, efficient, and regulation-compliant operations throughout each mission. "
     },
-
     {
       role: "Intern",
       company: "Fronius India Pvt Ltd",
       date: "May 2024 – June 2024",
       details:
-        "Acquired hands-on expertise in various welding processes such as SMAW, GMAW, and TIG.Conducted experimental analysis using a FANUC 6-axis robotic manipulator to study the effects of shielding gases (pure Argon, CO₂, and Argon-CO₂ blends in 80–20 and 98–2 ratios) on weld quality. Optimized welding parameters using advanced operational modes like CMT, PMC, PULSE, LSC, and standard modes for better process control.Also gained experience on robotic welding using various manipulators such as KUKA , KAWASAKI and YASKAWA (6-Axis manipulators) "
+        "Acquired hands-on expertise in various welding processes such as SMAW, GMAW, and TIG. Conducted experimental analysis using a FANUC 6-axis robotic manipulator to study the effects of shielding gases (pure Argon, CO₂, and Argon-CO₂ blends in 80–20 and 98–2 ratios) on weld quality. Optimized welding parameters using advanced operational modes like CMT, PMC, PULSE, LSC, and standard modes for better process control. Also gained experience on robotic welding using various manipulators such as KUKA, KAWASAKI and YASKAWA (6-Axis manipulators)."
     },
     {
       role: "Automation Intern",
@@ -56,7 +54,7 @@ export default function ExperiencePage() {
       company: "Vaayusastra Aerospace",
       date: "Feb 2023 – May 2023",
       details:
-        "Designed and fabricated an autonomous obstacle-avoidance vehicle.Also designed a Rocker Bogie mechanism using solidworks as a part of assignment and gained knowledge of its various advantages. Gained foundational knowledge in space rover design and mechanical systems."
+        "Designed and fabricated an autonomous obstacle-avoidance vehicle. Also designed a Rocker Bogie mechanism using SolidWorks as a part of an assignment and gained knowledge of its various advantages. Gained foundational knowledge in space rover design and mechanical systems."
     },
     {
       role: "Mechanical Design Intern",
@@ -79,64 +77,96 @@ export default function ExperiencePage() {
       date: "2023 - 2024",
       details:
         "Led social outreach initiatives at the Association of Mechatronics, SRM Institute of Science and Technology."
-    },
-
+    }
   ];
 
-    return (
-      <div style={{ minHeight: "200vh", width: "100vw", background: "black" }}>
-        {/* Starry 3D Background */}
-        <Canvas
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            zIndex: 0,
-          }}
-          camera={{ position: [0, 0, 10], fov: 75 }}
-        >
-          <ambientLight intensity={1} />
-          <MovingStars />
-        </Canvas>
-  
-        {/* Page Title */}
-        <div
-          style={{
-            position: "relative",
-            zIndex: 1,
-            paddingTop: "5rem",
-            textAlign: "center",
-          }}
-        >
-          <h1 style={{ color: "#00ffff", textShadow: "0 0 10px #0ff" }}>
-            Experiences
-          </h1>
-        </div>
-  
+  const isMobile = typeof window !== "undefined" && window.innerWidth <= 820;
+
+  return (
+    <div
+      style={{
+        minHeight: "200vh",
+        width: "100%",
+        maxWidth: "100%",
+        overflowX: "hidden",
+        background: "black",
+        position: "relative",
+      }}
+    >
+      {/* Starry 3D Background */}
+      <Canvas
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          zIndex: 0,
+          width: "100%",
+          height: "100%",
+        }}
+        camera={{ position: [0, 0, 10], fov: 75 }}
+      >
+        <ambientLight intensity={1} />
+        <MovingStars />
+      </Canvas>
+
+      {/* Page Title */}
+      <div
+        style={{
+          position: "relative",
+          zIndex: 1,
+          paddingTop: "5rem",
+          paddingLeft: isMobile ? "16px" : "0",
+          paddingRight: isMobile ? "16px" : "0",
+          textAlign: "center",
+        }}
+      >
+        <h1 style={{ color: "#00ffff", textShadow: "0 0 10px #0ff" }}>
+          Experiences
+        </h1>
+      </div>
 
       <div
         style={{
           position: "relative",
           zIndex: 1,
           margin: "2rem auto",
+          width: isMobile ? "calc(100% - 24px)" : "90%",
           maxWidth: "900px",
-          padding: "2rem",
+          padding: isMobile ? "1rem" : "2rem",
           background: "rgba(0, 255, 255, 0.05)",
           border: "2px solid #00ffff",
           borderRadius: "12px",
           boxShadow: "0 0 20px #00ffff55",
+          boxSizing: "border-box",
         }}
       >
-        <h1 style={{ color: "#00ffff", textAlign: "center", fontSize: "2.5rem" }}>
+        <h1
+          style={{
+            color: "#00ffff",
+            textAlign: "center",
+            fontSize: isMobile ? "2rem" : "2.5rem",
+          }}
+        >
           Professional Experience
         </h1>
+
         {professionalExperiences.map((exp, idx) => (
           <div key={idx} style={{ marginBottom: "2rem" }}>
-            <h2 style={{ color: "#fff", fontSize: "1.5rem" }}>{exp.role}</h2>
-            <h3 style={{ color: "#0ff", margin: "0.3rem 0" }}>
+            <h2 style={{ color: "#fff", fontSize: isMobile ? "1.25rem" : "1.5rem" }}>
+              {exp.role}
+            </h2>
+            <h3
+              style={{
+                color: "#0ff",
+                margin: "0.3rem 0",
+                lineHeight: isMobile ? "1.5" : "normal",
+              }}
+            >
               {exp.company && `${exp.company} `} <span style={{ color: "#aaa" }}>({exp.date})</span>
             </h3>
-            <p style={{ color: "#ccc", lineHeight: "1.6", textAlign: "justify" }}>{exp.details}</p>
+            <p style={{ color: "#ccc", lineHeight: "1.6", textAlign: "justify" }}>
+              {exp.details}
+            </p>
           </div>
         ))}
 
@@ -144,17 +174,22 @@ export default function ExperiencePage() {
           style={{
             color: "#00ffff",
             textAlign: "center",
-            fontSize: "2.5rem",
+            fontSize: isMobile ? "2rem" : "2.5rem",
             marginTop: "3rem"
           }}
         >
           Campus Engagements
         </h1>
+
         {academicExperiences.map((exp, idx) => (
           <div key={idx} style={{ marginBottom: "2rem" }}>
-            <h2 style={{ color: "#fff", fontSize: "1.5rem" }}>{exp.role}</h2>
+            <h2 style={{ color: "#fff", fontSize: isMobile ? "1.25rem" : "1.5rem" }}>
+              {exp.role}
+            </h2>
             <h3 style={{ color: "#aaa", margin: "0.2rem 0" }}>{exp.date}</h3>
-            <p style={{ color: "#ccc", lineHeight: "1.6", textAlign: "justify" }}>{exp.details}</p>
+            <p style={{ color: "#ccc", lineHeight: "1.6", textAlign: "justify" }}>
+              {exp.details}
+            </p>
           </div>
         ))}
       </div>
