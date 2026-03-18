@@ -84,7 +84,7 @@ const projectData = [
   },
   {
     id: 9,
-    title: "IOT Based smart fatory",
+    title: "IOT Based smart factory",
     category: "Software Simulation",
     description: "Designed an IoT‑enabled Smart Factory system that boosts efficiency, enables predictive maintenance, and drives agile, sustainable manufacturing across industries.",
     image: "./images/factory.jpg",
@@ -93,7 +93,7 @@ const projectData = [
   },
   {
     id: 10,
-    title: "IOT Based smart fatory",
+    title: "IOT Based smart factory",
     category: "Software Simulation",
     description: "The IoT-based Weather Data System using ESP32 aims to create a robust and efficient system for monitoring and collecting weather data in real-time. Leveraging the capabilities of the ESP32 microcontroller and various sensors, this project enables remote monitoring and analysis of weather conditions. ",
     image: "./images/wether.jpg",
