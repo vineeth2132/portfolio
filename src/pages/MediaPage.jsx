@@ -139,7 +139,18 @@ export default function MediaPage() {
           </div>
 
           <div style={mediaItemStyle}>
-            <img src="./images/infi1.jpg" alt="Inf 1" style={imageStyle} />
+            <img src="public\images\Cave_Voxel.png" alt="Interior 1" style={imageStyle} />
+          </div>
+
+          <div style={mediaItemStyle}>
+            <img src="public\images\full_map_top_view.png" alt="Full Map Top View" style={imageStyle} />
+          </div>
+
+          <div style={mediaItemStyle}>
+            <img src="public\images\Screenshot from 2026-03-03 23-12-40 (1).png" alt="Screenshot 1" style={imageStyle} />
+          </div>
+          <div style={mediaItemStyle}>
+            <img src="public\images\infi1.jpg" alt="Inf 1" style={imageStyle} />
           </div>
 
           <div style={mediaItemStyle}>

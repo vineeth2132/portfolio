@@ -26,6 +26,39 @@ const projectData = [
     tags: ["Python", "ROS", "Solidworks", "SLAM", "NLP"],
     details: `Implemented SLAM (Simultaneous Localization and Mapping) algorithms to enable real-time mapping and autonomous path planning. Additionally, integrated a LLaMA-based Large Language Model (LLM) for interactive, voice-based user commands, creating a seamless fusion of robotics and natural language understanding.`,
   },
+{
+  id: 14,
+  title: "Autonomous Sub-Terrain Exploration with Quadrotor UAV",
+  category: "Software Simulation",
+  description:
+    "Developed a ROS 2-based autonomous quadrotor system for a GPS-denied cave exploration challenge in Unity, focusing on perception, sensor-stream integration, object detection, and 3D voxel mapping.",
+  image: "public/images/Cave_Voxel.png",
+  tags: [
+    "ROS 2 Jazzy",
+    "Unity",
+    "OpenCV",
+    "OctoMap",
+    "RViz",
+    "TF2",
+    "Point Cloud Processing",
+    "Computer Vision",
+    "Python",
+    "C++",
+  ],
+  details: `Developed a ROS 2-based autonomous quadrotor system for a GPS-denied cave exploration challenge in a Unity simulation environment. The UAV was designed to navigate through a cave, detect lanterns, estimate their 3D world-frame poses, and build a 3D voxel-grid map of the environment.
+
+My contribution focused on the perception and sensor-processing pipeline. I worked on depth-image processing, point-cloud generation, RGB/depth lantern detection, and semantic-camera-based detection using OpenCV. The system integrated RealSense depth data, RGB and semantic camera streams, TF transformations, OctoMap mapping, RViz visualization, and ROS 2 topic-based communication.
+
+This project is relevant to computer vision, robotics infrastructure, and robotic teleoperation/interface development because it involved object detection, sensor-stream integration, 3D visualization, simulation-based testing, and debugging of perception outputs in a robotic system.
+
+Key highlights:
+- Built perception modules for RGB/depth and semantic-camera-based lantern detection.
+- Used OpenCV HSV segmentation, connected-components analysis, and non-maximum suppression.
+- Generated point clouds from RealSense depth images for OctoMap-based 3D voxel mapping.
+- Estimated detected lantern poses in the world frame using TF transformations.
+- Used RViz to inspect OctoMap voxel maps, TF frames, sensor streams, and object detections.
+- Worked within a modular ROS 2 pipeline combining perception, mapping, mission control, and exploration.`,
+},
   {
     id: 3,
     title: "Automated Conveyor Sorting and Assembly System",
@@ -576,26 +609,30 @@ const allStyles = `
   }
 
   .modal-close-btn {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: #0ff;
-    color: #000;
-    border: none;
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 1.2rem;
-    transition: all 0.2s ease;
-  }
-  .modal-close-btn:hover {
-    background: #fff;
-  }
+  position: absolute;
+  top: 15px;
+  right: 15px;
+
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  min-height: 42px;
+  padding: 0;
+
+  background: #0ff;
+  color: #000;
+  border: none;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  z-index: 20;
+
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+}
 
   .modal-image {
     width: 100%;
