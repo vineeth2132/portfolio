@@ -315,14 +315,15 @@ const allStyles = `
     justify-content: center;
   }
 
-  .hero-profile-img {
-    width: 280px;
-    height: 360px;
-    object-fit: contain;
-    border-radius: 10%;
-    border: 4px solid #0ff;
-    box-shadow: 0 0 40px rgba(0, 255, 255, 0.4);
-  }
+.hero-profile-img {
+  width: 280px;
+  height: 360px;
+  object-fit: cover;
+  object-position: center 40%;
+  border-radius: 10%;
+  border: 4px solid #0ff;
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.4);
+}
 
   /* --- About Section --- */
   .about-section {
@@ -1180,7 +1181,7 @@ export default function LandingPage() {
         {/* Right Side: Image/Visual */}
         <div className="hero-image-container">
           <img 
-            src="./images/vineth_pro.jpg"
+            src="public/images/vineth.jpeg"
             alt="Profile" 
             className="hero-profile-img"
           />
