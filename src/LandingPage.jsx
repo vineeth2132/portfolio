@@ -32,7 +32,7 @@ const projectData = [
   category: "Software Simulation",
   description:
     "Developed a ROS 2-based autonomous quadrotor system for a GPS-denied cave exploration challenge in Unity, focusing on perception, sensor-stream integration, object detection, and 3D voxel mapping.",
-  image: "public/images/Cave_Voxel.png",
+  image: "./images/Cave_Voxel.png",
   tags: [
     "ROS 2 Jazzy",
     "Unity",
