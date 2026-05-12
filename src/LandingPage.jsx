@@ -1181,7 +1181,7 @@ export default function LandingPage() {
         {/* Right Side: Image/Visual */}
         <div className="hero-image-container">
           <img 
-            src="public/images/vineth.jpeg"
+            src="./images/vineth.jpeg"
             alt="Profile" 
             className="hero-profile-img"
           />
